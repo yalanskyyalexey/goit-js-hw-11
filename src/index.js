@@ -10,9 +10,8 @@ let pageCounter = 1;
 const createMarkup = event => {
   event.preventDefault();
 
-  getImages(inputValue, pageCounter).then(photos => (gallery.innerHTML = galleryTemplate(photos)));
-
   pageCounter = 1;
+  getImages(inputValue, pageCounter).then(photos => (gallery.innerHTML = galleryTemplate(photos)));
 
   if (!inputValue) {
     moreButton.classList.remove('visible-button');

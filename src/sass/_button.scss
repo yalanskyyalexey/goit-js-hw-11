@@ -16,11 +16,15 @@
 
   &:hover,
   &:focus {
-    color: white;
-    background-color: grey;
+    color: #ffffff;
+    background-color: #89c789;
   }
 }
 
 .visible-button {
   display: block;
+}
+
+.hidden {
+  visibility: hidden;
 }

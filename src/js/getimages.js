@@ -12,7 +12,7 @@ const getImages = async (queryString, pages) => {
       );
 
       if (queryString && photos.totalHits > 0) {
-        setTimeout(() => moreButton.classList.add('visible-button'), 300);
+        moreButton.classList.add('visible-button');
       }
 
       if (!photos.total) {
@@ -22,11 +22,15 @@ const getImages = async (queryString, pages) => {
       } else if (pages === 1) {
         Notiflix.Notify.success(`Hooray! We found ${photos.totalHits} images.`);
       }
-
+      if (pages > Math.ceil(photos.total / photos.totalHits)) {
+        moreButton.classList.add('hidden');
+        Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+      }
       return photos;
     }
   } catch {
-    Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+    // Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+    console.log('Not OK');
   }
 };
 
