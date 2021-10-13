@@ -15,6 +15,8 @@ const createMarkup = event => {
 
   if (!inputValue) {
     moreButton.classList.remove('visible-button');
+  } else {
+    moreButton.classList.remove('hidden');
   }
 };
 
